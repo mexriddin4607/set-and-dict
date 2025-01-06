@@ -1000,16 +1000,20 @@ phones = [{"brand":"Samsung","model":"Samsung A777","date":2008},
 {"brand":"Motorola","model":"Motorola Moto G9 (India)","date":2020}]
 
 # code yozing
-# natija quyidagicha chiqsin
-"""
-Hisobot:
-- Brandlar:
-    - Samsung telefonlar: 300 ta 30%i
-    - Motorolla telefonlar: 150 ta 15%i
-    ....
-- Yillar (2000-2025):
-    - 2000 yilda: 20 ta 2%i
-    - 2001 yilda: 40 ta 4%i
-    - 2002 yilda: 70 ta 7%i
-    ....
-"""
+
+
+brends_soni =  {}  
+
+for phone in phones :          
+    brend = phone["brand"]    
+    if brend in brends_soni:     
+        brends_soni[brend] += 1   
+    else :                        
+        brends_soni[brend] = 1
+
+sum_phones = len(phones)          
+
+for brend , count in brends_soni.items():       
+    foiz = ((count / sum_phones)*100)        
+    print(f"{brend} {count} , {foiz : .2f} %")     
+
